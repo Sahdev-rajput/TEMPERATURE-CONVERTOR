@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature Convertor</title>
+    <style>
+        #display
+        {
+            font-weight: bolder;
+            font-size: 20px;
+            margin-left: 200px;
+            margin-right:200px;
+            padding: 5px;
+        }
+        #form
+        {
+            margin-left: 200px;
+            margin-right:200px;
+            padding: 5px;
+        }
+        #heading
+        {
+            margin-left: 200px;
+            margin-right:200px;
+            padding: 5px;
+            margin-top: 100px;
+        }
+        #body
+        {
+            background-color: rgb(140, 235, 235);
+        }
+    </style>
+</head>
+<body id="body">
+    <center>
+    <h1 style="Color:red" id="heading">TEMPERATURE CONVERTOR</h1>
+    <form id="form">
+        <p style="font-weight: bold;">Enter the temperature and select its unit: </p>
+        <input type="text" placeholder="Enter the temperature" id="temperature">
+        <select id="me">
+            <option>Celsius</option>
+            <option>Fahrenheit</option>
+            <option>Kelvin</option>
+        </select>
+        <p style="font-weight:bold">Select the unit in which the temperature is to be converted: </p>
+        <select id="my">
+            <option>Celsius</option>
+            <option>Fahrenheit</option>
+            <option>Kelvin</option>
+        </select>
+        <br><br>
+        <input type="button" value="Check" onclick="changed()">
+    </form>
+    <p id="display" style="color:rgb(255, 0, 0)"></p>
+</center>
+    <script>
+        function changed()
+        {
+            var a=document.getElementById("temperature").value;
+            var b=document.getElementById("me").value;
+            var c=document.getElementById("my").value;
+            if(b=="Fahrenheit")
+            {
+                if(c=="Celsius"){
+                    let w=((a-32)*5)/9;
+                    document.getElementById("display").innerHTML="The temperature in "+c+" is "+w;
+                }
+                else if(c=="Kelvin"){
+                    let w=((a-32)*5)/9+273.15;
+                    document.getElementById("display").innerHTML="The temperature in "+c+" is "+w;
+                }
+                else
+                {
+                    document.getElementById("display").innerHTML="The temperature in "+b+" is "+a;
+                }
+            }
+            else if(b=="Kelvin")
+            {
+                if(c=="Fahrenheit"){
+                    let w=((a-273.15)*9)/5+32;
+                    document.getElementById("display").innerHTML="The temperature in "+c+" is "+w;
+                }
+                else if(c=="Celsius"){
+                    let w=a-273.15;
+                    document.getElementById("display").innerHTML="The temperature in "+c+" is "+w;
+                }
+                else
+                {
+                    document.getElementById("display").innerHTML="The temperature in "+b+" is "+a;
+                }
+            }
+            else
+            {
+                if(c=="Kelvin"){
+                    let w=273.15+(+a);
+                    document.getElementById("display").innerHTML="The temperature in "+c+" is "+w;
+                }
+                else if(c=="Fahrenheit"){
+                    let w=((9/5)*a)+32;
+                    document.getElementById("display").innerHTML="The temperature in "+c+" is "+w;
+                }
+                else
+                {
+                    document.getElementById("display").innerHTML="The temperature in "+b+" is "+a;
+                }
+            }
+        }
+    </script>
+
+    
+</body>
+</html>
